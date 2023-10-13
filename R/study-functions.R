@@ -20,20 +20,19 @@ clean_data <- function(file) {
 }
 
 ## version 2: convert date to PDT
-# clean_data <- function(file) {
-#   
-#   data <- read_csv(file) %>%
-#     ## filter out NA data_time
-#     filter(!is.na(date_time)) %>%
-#     ## separate date and time in fourth column using stringr::word() function that extracts words in strings
-#     mutate(date_time = as.POSIXct(date_time, tz = "UTC", format = "%m/%d/%y %H:%M"),
-#            ## convert to PDT
-#            date_time = with_tz(date_time, tzone = "America/Los_Angeles"),
-#            ## date only
-#            date = as.Date(str_sub(as.character(date_time), 1, 10)),
-#            ## add day of week
-#            day = weekdays(date_time))
-#   
+# 
+# data <- read_csv(file)  %>%
+#   ## filter out NA data_time
+#   filter(!is.na(date_time)) %>%
+#   ## separate date and time in fourth column using stringr::word() function that extracts words in strings
+#   mutate(date_time = as.POSIXct(date_time, tz = "UTC", format = "%m/%d/%y %H:%M"),
+#        ## convert to PDT
+#        date_time = with_tz(date_time, tzone = "America/Los_Angeles"),
+#        ## date only
+#        date = as.Date(str_sub(as.character(date_time), 1, 10)),
+#        ## add day of week
+#        day = weekdays(date_time))
+# 
 #   data
 #   
 # }

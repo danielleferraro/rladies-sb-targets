@@ -23,7 +23,7 @@ library(targets)
 
 # Set target options:
 tar_option_set(
-  packages = c("tidyverse", "here") # packages that your targets need to run
+  packages = c("tidyverse", "here", "lubridate") # packages that your targets need to run
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
   # For distributed computing in tar_make(), supply a {crew} controller
@@ -64,10 +64,10 @@ tar_source()
 # Replace the target list below with your own:
 list(
   
-  ## read in the data
+  ## create file name
   tar_target(name = file, command = file.path(here::here("data/traceybit-lastfm.csv")), format = "file"),
   
-  ## clean the data 
+  ## read in and clean the data 
   tar_target(name = data, command = clean_data(file)),
   
   ## create table of play counts
