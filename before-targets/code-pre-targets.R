@@ -3,6 +3,7 @@
 ## libraries
 library(tidyverse)
 library(here)
+library(lubridate)
 
 ## read in data
 data <- read_csv(here::here("data/traceybit-lastfm.csv"))
